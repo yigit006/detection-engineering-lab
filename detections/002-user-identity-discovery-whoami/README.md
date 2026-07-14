@@ -31,7 +31,17 @@ confirming this design choice.
 
 ## Rule
 
-See [rule.xml](./rule.xml).
+```xml
+<group name="sysmon_custom">
+  <rule id="100102" level="10">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.parentImage" type="pcre2">(cmd|powershell)\.exe<>
+    <field name="win.eventdata.image" type="pcre2">whoami\.exe</field>
+    <description>User identity discovery: whoami executed via command shell</de>
+    <mitre><id>T1033</id></mitre>
+  </rule>
+</group>
+```
 
 Rule 61603 is Wazuh's base rule for Sysmon Event ID 1 (process creation).
 It has level 0, meaning it matches silently and never generates an alert
