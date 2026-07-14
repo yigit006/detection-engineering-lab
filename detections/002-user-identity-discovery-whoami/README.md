@@ -35,9 +35,9 @@ confirming this design choice.
 <group name="sysmon_custom">
   <rule id="100102" level="10">
     <if_sid>61603</if_sid>
-    <field name="win.eventdata.parentImage" type="pcre2">(cmd|powershell)\.exe<>
+    <field name="win.eventdata.parentImage" type="pcre2">(cmd|powershell)\.exe</field>
     <field name="win.eventdata.image" type="pcre2">whoami\.exe</field>
-    <description>User identity discovery: whoami executed via command shell</de>
+    <description>User identity discovery: whoami executed via command shell</description>
     <mitre><id>T1033</id></mitre>
   </rule>
 </group>
