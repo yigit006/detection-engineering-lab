@@ -1,0 +1,15 @@
+<!-- Detection 001: Account Discovery via net.exe / net1.exe (MITRE T1087)
+     Parent: powershell.exe | Tested: positive (net user, net1 user) + negative (net use)
+     Note: type="pcre2" is required for the `?` quantifier — Wazuh's default
+     field matching uses OS_Regex, which does not support it. -->
+
+<group name="sysmon_custom">
+  <rule id="100101" level="10">
+    <if_sid>92033</if_sid>
+    <field name="win.eventdata.parentImage">powershell\.exe</field>
+    <field name="win.eventdata.image" type="pcre2">net1?\.exe</field>
+    <field name="win.eventdata.commandLine" type="pcre2">net1?\.exe.+user</field>
+    <description>Hesap keşfi: PowerShell üzerinden net user çalıştırıldı</description>
+    <mitre><id>T1087</id></mitre>
+  </rule>
+</group>
