@@ -1,0 +1,8 @@
+<group name="sysmon_custom">
+  <rule id="100103" level="10">
+    <if_sid>91816</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">\$env:USERNAME</field>
+    <description>User identity discovery: environment variable queried instead of whoami (evasion)</description>
+    <mitre><id>T1033</id></mitre>
+  </rule>
+</group>
