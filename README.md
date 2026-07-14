@@ -20,6 +20,7 @@ Each detection follows a five-step loop:
 | # | Name | Technique | Status |
 |---|---|---|---|
 | 001 | [Account Discovery via net.exe](detections/001-account-discovery-net-user/) | T1087 | ✅ Tested |
+| 002 | [User Identity Discovery via whoami](detections/002-user-identity-discovery-whoami/) | T1033 | ✅ Tested |
 
 ## Lab Setup
 
