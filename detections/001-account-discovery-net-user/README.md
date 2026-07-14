@@ -29,7 +29,7 @@ A single field is not enough because it can lead to an excessive number of false
     <field name="win.eventdata.parentImage">powershell\.exe</field>
     <field name="win.eventdata.image" type="pcre2">net1?\.exe</field>
     <field name="win.eventdata.commandLine" type="pcre2">net1?\.exe.+user</field>
-    <description>Hesap keşfi: PowerShell üzerinden net user çalıştırıldı</description>
+    <description>Account discovery: net user executed via PowerShell</description>
     <mitre><id>T1087</id></mitre>
   </rule>
 </group>
