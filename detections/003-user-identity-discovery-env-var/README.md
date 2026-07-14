@@ -44,7 +44,16 @@ Two setup steps were required, because neither is enabled by default:
 
 ## Rule
 
-See [rule.xml](./rule.xml).
+```xml
+<group name="sysmon_custom">
+  <rule id="100103" level="10">
+    <if_sid>91816</if_sid>
+    <field name="win.eventdata.scriptBlockText" type="pcre2">\$env:USERNAME</field>
+    <description>User identity discovery: environment variable queried instead of whoami (evasion)</description>
+    <mitre><id>T1033</id></mitre>
+  </rule>
+</group>
+```
 
 The base rule here is **not** the generic Sysmon rule used by 001/002.
 When the first `$env:USERNAME` event arrived, `wazuh-logtest` (and the
